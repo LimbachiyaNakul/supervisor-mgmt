@@ -1,0 +1,124 @@
+
+<div>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class=".example-form">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th colspan="2">
+            <p>
+              <mat-toolbar>
+                <span>Notification Form</span>
+              </mat-toolbar>
+            </p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">
+                  <label for="firstname">First Name </label>
+                </p>
+                <mat-form-field class="example-full-width">
+                  <mat-label for="firstname">First name</mat-label>
+                  <input id="firstname" name="firstname" formControlName="firstname" matInput>
+                </mat-form-field>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">
+                  <label for="lastname">Last Name </label>
+                </p>
+                <mat-form-field class="example-full-width">
+                  <mat-label for="lastname">Last name</mat-label>
+                  <input id="lastname" name="lastname" formControlName="lastname" matInput>
+                </mat-form-field>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="align-items-center">
+              <p class="ms-3">How would you prefer to be notified?</p>
+              <div class="ms-3">
+
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" id="emailstatus" name="emailstatus"
+                    formControlName="emailstatus" (change)="checkEmailStatus($event)">Email</mat-checkbox>
+                </section>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                  <input type="email" name="emailFormControl" id="emailFormControl" matInput
+                    formControlName="emailFormControl" [errorStateMatcher]="matcher"
+                    placeholder="Ex. pat@example.com" />
+                  <mat-error *ngIf="
+                      contactForm.get('emailFormControl')?.hasError('email') &&
+                      !contactForm.get('emailFormControl')?.hasError('required')
+                    ">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="
+                      contactForm.get('emailFormControl')?.hasError('required')
+                    ">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" value="male" id="phonenumberstatus" name="phonenumberstatus"
+                    formControlName="phonenumberstatus">Phone Number</mat-checkbox>
+                </section>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label for="phonenumber">Phone Number</mat-label>
+                  <input matInput id="phonenumber" name="phonenumber" formControlName="phonenumber">
+                </mat-form-field>
+
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold">
+                  <label for="supervisor">Supervisor</label>
+                </p>
+                <mat-form-field>
+                  <mat-label>select...</mat-label>
+                  <mat-select select id="supervisor" name="supervisor" formControlName="supervisor">
+                    <mat-option *ngFor="let food of supervisors" [value]="food.id">
+                      {{ food.firstName }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <section>
+              <div class="example-button-row">
+                <button type="submit" mat-raised-button [disabled]="!contactForm.valid">Submit</button>
+              </div>
+            </section>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

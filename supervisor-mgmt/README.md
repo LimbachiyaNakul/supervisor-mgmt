@@ -7,5 +7,5 @@
     docker build --tag=supervisor-mgmt:latest .
 - Run docker image using below command
 
-   docker run -p8081:8080 supervisor-mgmt:latest
-- Once docker image is succesfully running then api can be access on http://localhost:8081
+   docker run -p8080:8080 supervisor-mgmt:latest
+- Once docker image is succesfully running then api can be access on http://localhost:8080
