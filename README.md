@@ -16,7 +16,7 @@
 - get inside NotificationForm folder
 -  Build docker image using below command
  
-    docker build –t angular-frontend .
+    docker build -t angular-frontend .
 - Run docker image using below command
 
    docker run -p80:80 angular-frontend:latest
