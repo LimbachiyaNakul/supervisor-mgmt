@@ -5,7 +5,7 @@
       <thead class="bg-light">
         <tr>
           <th colspan="2">
-            <p>
+            <p class="align-center">
               <mat-toolbar>
                 <span>Notification Form</span>
               </mat-toolbar>
@@ -16,7 +16,7 @@
       <tbody>
         <tr>
           <td>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center align-center">
               <div class="ms-3">
                 <p class="fw-bold mb-1">
                   <label for="firstname">First Name </label>
@@ -29,7 +29,7 @@
             </div>
           </td>
           <td>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center align-center">
               <div class="ms-3">
                 <p class="fw-bold mb-1">
                   <label for="lastname">Last Name </label>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
           <td>
-            <div class="align-items-center">
+            <div class="align-items-center align-center">
               <p class="ms-3">How would you prefer to be notified?</p>
               <div class="ms-3">
 
@@ -74,11 +74,11 @@
             </div>
           </td>
           <td>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center align-center">
               <div class="ms-3">
                 <section class="example-section">
                   <mat-checkbox class="example-margin" value="male" id="phonenumberstatus" name="phonenumberstatus"
-                    formControlName="phonenumberstatus">Phone Number</mat-checkbox>
+                    formControlName="phonenumberstatus" (change)="checkPhoneStatus($event)">Phone Number</mat-checkbox>
                 </section>
 
                 <mat-form-field class="example-full-width">
@@ -92,7 +92,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center supervisor-dropdown align-center">
               <div class="ms-3">
                 <p class="fw-bold">
                   <label for="supervisor">Supervisor</label>
@@ -100,8 +100,8 @@
                 <mat-form-field>
                   <mat-label>select...</mat-label>
                   <mat-select select id="supervisor" name="supervisor" formControlName="supervisor">
-                    <mat-option *ngFor="let food of supervisors" [value]="food.id">
-                      {{ food.firstName }}
+                    <mat-option *ngFor="let val of supervisors" [value]="val">
+                      {{ val }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -111,7 +111,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            <section>
+            <section class="align-center">
               <div class="example-button-row">
                 <button type="submit" mat-raised-button [disabled]="!contactForm.valid">Submit</button>
               </div>

@@ -5,10 +5,28 @@
   }
   
   .example-full-width {
-    /* width: 50%; */
+    min-width: 50%;
+  }
+
+  .ms-3 {
+    width: 100%;
+  }
+
+  .supervisor-dropdown{
+    margin-left: 30%;
+  }
+
+  .btn-32 {
+    margin-left: 32%;
+  }
+
+  button {
+    width: 200px;
+  }
+
+  .align-center{
+    width: fit-content;
+    margin: auto;
   }
   
-  /* td, th {
-    text-align: center !important;
-    vertical-align: middle !important;
-} */
+ 
